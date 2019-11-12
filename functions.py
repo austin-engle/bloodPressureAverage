@@ -12,7 +12,7 @@ def reading(num):
     # Gathers the blood pressure readings.
     
     print(f'Please take the {num} reading now.\n')
-    time.sleep(30)
+    # time.sleep(30)
 
     correct = None
 
@@ -23,7 +23,7 @@ def reading(num):
         PUL = int(input(f'What is the PUL of the {num} reading? '))
 
         print(f'\n{num.capitalize()} Blood Pressure reading:\n {SYS}/{DIA} {PUL}\n')
-        time.sleep(1)
+        # time.sleep(1)
 
         correct = input('Is this the correct blood pressure reading? (Yes/No) ').lower()
 
@@ -46,7 +46,7 @@ def countdown():
 
     while countdown != 0:
         countdown = countdown - 1
-        time.sleep(1)
+        # time.sleep(1)
         if countdown == 20 or countdown == 10:
             print(f'{countdown} seconds remaining.')
 
@@ -57,7 +57,7 @@ def avgBp(bp1, bp2, bp3):
     # Averages the Blood Pressures that were previously collected.
 
     print(f'Calcuating average blood pressure')
-    time.sleep(2)
+    # time.sleep(2)
 
     AVG_SYS = int(((bp1["SYS"] + bp2["SYS"] + bp3["SYS"]) / 3))
     AVG_DIA = int(((bp1["DIA"] + bp2["DIA"] + bp3["DIA"]) / 3))
