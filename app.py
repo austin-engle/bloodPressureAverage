@@ -1,17 +1,25 @@
 import functions
 
-functions.clear() # Clears the console
+# Clears the console
+functions.clear()
 
-bp1 = functions.reading('first') # Gathers first blood pressure reading
+# Gathers first blood pressure reading
+bp1 = functions.reading('first')
 
-functions.countdown() # Delays 30 seconds
+# Delays 30 seconds
+functions.countdown()
 
-bp2 = functions.reading('second') # Gathers second blood pressure reading
+# Gathers second blood pressure reading
+bp2 = functions.reading('second')
 
-functions.countdown() # Deplays 30 seconds
+# Deplays 30 seconds
+functions.countdown()
 
-bp3 = functions.reading('third') # Gathers third blood pressure reading
+# Gathers third blood pressure reading
+bp3 = functions.reading('third')
 
-AVG_BP = functions.avgBp(bp1, bp2, bp3) # Averages the 3 blood pressure reading
+# Averages the 3 blood pressure reading
+avg_bp = functions.avgbp(bp1, bp2, bp3)
 
-functions.readingOutput(AVG_BP) # returns diagnoses from the calculated average blood pressure
+# returns diagnoses from the calculated average blood pressure
+functions.reading_output(avg_bp)
