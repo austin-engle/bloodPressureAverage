@@ -22,7 +22,7 @@ def reading(num):
 
         sys = int(input(f"What is the SYS of the {num} reading? "))
         dia = int(input(f"What is the DIA of the {num} reading? "))
-        pul = int(input(f"What is the PUL of the {num} reading? "))
+        pul = int(input(f"What is the pul of the {num} reading? "))
 
         print(f"\n{num.capitalize()} Blood Pressure reading:\n {sys}/{dia} {pul}\n")
         time.sleep(1)
@@ -31,7 +31,7 @@ def reading(num):
 
         print("")
 
-    bp = {"sys": sys, "dia": dia, "PUL": pul}
+    bp = {"sys": sys, "dia": dia, "pul": pul}
 
     return bp
 
@@ -61,7 +61,7 @@ def avgbp(bp1, bp2, bp3):
 
     avg_sys = int(((bp1["sys"] + bp2["sys"] + bp3["sys"]) / 3))
     avg_dia = int(((bp1["dia"] + bp2["dia"] + bp3["dia"]) / 3))
-    avg_pul = int(((bp1["PUL"] + bp2["PUL"] + bp3["PUL"]) / 3))
+    avg_pul = int(((bp1["pul"] + bp2["pul"] + bp3["pul"]) / 3))
 
     print(f"\nAverage blood pressure: \n {avg_sys}/{avg_dia} {avg_pul}\n")
 
