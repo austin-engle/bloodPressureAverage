@@ -16,6 +16,9 @@ import functions
 # Clears the console
 functions.clear()
 
+# Gets tags for reading
+tags = functions.tags()
+
 # Gathers first blood pressure reading
 bp1 = functions.reading('first')
 
@@ -35,6 +38,20 @@ bp3 = functions.reading('third')
 avg_bp = functions.avgbp(bp1, bp2, bp3)
 
 # returns diagnoses from the calculated average blood pressure
-diagnosis = functions.reading_output(avg_bp)
+diagnosis = functions.diagnosis_output(avg_bp)
 
+# Write data to csv for keeping
+functions.write_to_csv(avg_bp, diagnosis, tags)
+
+# Calculate average for last 7 days
+
+# Calculate average for last 30 days
+
+# Calculate average for last 90 days
+
+# Calculate average for all inputs
+
+# Save all averages calculated to a file
+
+# Push all updates to GitHub
 functions.push_to_github()
