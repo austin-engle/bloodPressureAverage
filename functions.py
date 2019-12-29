@@ -1,6 +1,6 @@
 import time
 import os
-
+from datetime import datetime
 
 def clear():
 
@@ -76,34 +76,59 @@ def reading_output(avg_bp):
 
     if avg_bp["avg_sys"] < 90:
         print(f"Your average sys is showing signs of Hypotension")
+        bp_diagnosis = 'Hypotension'
 
     elif avg_bp["avg_sys"] >= 91 and avg_bp["avg_sys"] <= 120:
         print(f"Your average sys is in a healthy range")
+        bp_diagnosis = "Normal"
 
     elif avg_bp["avg_sys"] >= 121 and avg_bp["avg_sys"] <= 140:
         print(f"Your average sys is showing signs of Prehypertension")
+        bp_diagnosis = "Prehypertension"
 
     elif avg_bp["avg_sys"] >= 141 and avg_bp["avg_sys"] <= 160:
         print(f"Your average sys is showing signs of Hypertension Stage 1")
+        bp_diagnosis = "Stage 1 Hypertension"
 
     elif avg_bp["avg_sys"] >= 161:
         print(f"Your average sys is showing signs of Hypertension Stage 2")
+        bp_diagnosis = "Stage 2 Hypertension"
 
     # Idenifys the diagnosis range that the Average dia is in.
 
     if avg_bp["avg_dia"] < 60:
         print(f"Your average dia is showing signs of Hypotension")
+        dia_diagnosis = 'Hypotension'
 
     elif avg_bp["avg_dia"] >= 61 and avg_bp["avg_dia"] <= 80:
         print(f"Your average dia is in a healthy range")
+        dia_diagnosis = "Normal"
 
     elif avg_bp["avg_dia"] >= 81 and avg_bp["avg_dia"] <= 90:
         print(f"Your average dia is showing signs of Prehypertension")
+        dia_diagnosis = "Prehypertension"
 
     elif avg_bp["avg_dia"] >= 91 and avg_bp["avg_dia"] <= 100:
         print(f"Your average dia is showing signs of Hypertension Stage 1")
+        dia_diagnosis = "Stage 1 Hypertension"
 
     elif avg_bp["avg_dia"] >= 101:
         print(f"Your average dia is showing signs of Hypertension Stage 2")
+        dia_diagnosis = "Stage 2 Hypertension"
 
     print("")
+
+    diagnosis = {
+        "bp_diagnosis" : bp_diagnosis,
+        "dia_diagnosis" : dia_diagnosis 
+    }
+
+    return diagnosis
+
+
+def push_to_github():
+    os.system("git add *")
+    time.sleep(2)
+    os.system(f"git commit -m 'commit after blood pressure reading: {datetime.now()}'")
+    time.sleep(2)
+    os.system(f"git push")

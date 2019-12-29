@@ -35,4 +35,6 @@ bp3 = functions.reading('third')
 avg_bp = functions.avgbp(bp1, bp2, bp3)
 
 # returns diagnoses from the calculated average blood pressure
-functions.reading_output(avg_bp)
+diagnosis = functions.reading_output(avg_bp)
+
+functions.push_to_github()
