@@ -5,6 +5,10 @@ from datetime import datetime
 now = datetime.now()
 date = f"{now.month}/{now.day}/{now.year}"
 
+time_24hr = f"{now.hour}:{now.minute}"
+d = datetime.strptime(time_24hr, "%H:%M")
+time_12hr = d.strftime("%I:%M %p")
+
 def clear():
 
     # Clears the console
@@ -144,7 +148,6 @@ def diagnosis_output(avg_bp):
     elif sys_diagnosis < dia_diagnosis:
         diagnosis = dia[dia_diagnosis]
 
-    print(diagnosis) # Remove
     return diagnosis
 
 
@@ -159,9 +162,14 @@ def tags():
         '2' : "Laying Down"
     }
 
-    arm_choice = input('Did you take the reading with your Right(1) or Left(2) arm?\n')
+    arm_choice = None
+    position_choice = None
 
-    position_choice = input('Were you seated(1) or laying down(2) when taking the reading?\n')
+    while arm_choice != '1' and arm_choice != '2':
+        arm_choice = input('Did you take the reading with your Right(1) or Left(2) arm?\n')
+
+    while position_choice != '1' and position_choice != '2':
+        position_choice = input('Were you seated(1) or laying down(2) when taking the reading?\n')
 
     tags = f'{tags_arm[arm_choice]} | {tags_position[position_choice]}'
 
@@ -174,7 +182,7 @@ def push_to_github():
 
     os.system("git add *")
     # sleep(1)
-    os.system(f"git commit -m 'commit after blood pressure reading: {date}'")
+    os.system(f"git commit -m 'commit after blood pressure reading: {date} {time_12hr}'")
     # sleep(1)
     os.system(f"git push")
 
@@ -185,21 +193,18 @@ def write_to_csv(avg_bp, diagnosis, tags):
 
     # DATE
     date
-    print(date)
+
     # TIME
-    time = f"{now.hour}:{now.minute}"
-    print(time)
+    time_12hr
+
     # SYS
     sys = avg_bp['avg_sys']
-    print(sys)
 
     # DIA
     dia = avg_bp['avg_dia']
-    print(dia)
 
     # PUL
     pul = avg_bp['avg_pul']
-    print(pul)
 
     # BPZ
     bpz = diagnosis
@@ -207,5 +212,9 @@ def write_to_csv(avg_bp, diagnosis, tags):
     # TAGS
     tags = tags
 
+    # DATE,TIME,SYS,DIA,PUL,BPZ,TAGS
+    csv_write_format = f"{date},{time_12hr},{sys},{dia},{pul},{bpz},{tags}"
+    
+    print(csv_write_format)
 
     return
