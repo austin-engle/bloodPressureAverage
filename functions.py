@@ -1,4 +1,4 @@
-# from time import sleep
+from time import sleep
 import os
 from datetime import datetime
 
@@ -21,18 +21,23 @@ def reading(num):
     # Gathers the blood pressure readings.
 
     print(f"Please take the {num} reading now.\n")
-    # sleep(30)
+    sleep(30)
 
     correct = None
+    sys = None
+    dia = None
+    pul = None
 
     while correct != "yes" and correct != "y":
-
+        
+        # add error handling for value errors (right now a '' will break the script, Likely need to remove the int and make it an int later in the script)
+        # while type(sys) != int:
         sys = int(input(f"What is the SYS of the {num} reading? "))
         dia = int(input(f"What is the DIA of the {num} reading? "))
         pul = int(input(f"What is the pul of the {num} reading? "))
 
         print(f"\n{num.capitalize()} Blood Pressure reading:\n {sys}/{dia} {pul}\n")
-        # sleep(1)
+        sleep(1)
 
         correct = input("Is this the correct blood pressure reading? (Yes/No) ").lower()
 
@@ -56,7 +61,7 @@ def countdown():
 
     while countdown != 0:
         countdown = countdown - 1
-        # sleep(1)
+        sleep(1)
         if countdown == 20 or countdown == 10:
             print(f"{countdown} seconds remaining.")
 
@@ -68,7 +73,7 @@ def avgbp(bp1, bp2, bp3):
     # Averages the Blood Pressures that were previously collected.
 
     print(f"Calcuating average blood pressure")
-    # sleep(2)
+    sleep(2)
 
     avg_sys = int(((bp1["sys"] + bp2["sys"] + bp3["sys"]) / 3))
     avg_dia = int(((bp1["dia"] + bp2["dia"] + bp3["dia"]) / 3))
@@ -181,9 +186,9 @@ def push_to_github():
     # Pushes the updates to github automatically as the end of the script
 
     os.system("git add *")
-    # sleep(1)
+    sleep(1)
     os.system(f"git commit -m 'commit after blood pressure reading: {date} {time_12hr}'")
-    # sleep(1)
+    sleep(1)
     os.system(f"git push")
 
 
@@ -213,8 +218,13 @@ def write_to_csv(avg_bp, diagnosis, tags):
     tags = tags
 
     # DATE,TIME,SYS,DIA,PUL,BPZ,TAGS
-    csv_write_format = f"{date},{time_12hr},{sys},{dia},{pul},{bpz},{tags}"
+    csv_write_format = date,time_12hr,sys,dia,pul,bpz,tags
     
-    print(csv_write_format)
+    import csv
+    # fields=["9/20/19","6:36 PM","138","88","54","Prehypertension","Right arm | Seated"]
+    with open(r'BloodPressure1.csv', 'a') as f:
+        writer = csv.writer(f)
+        writer.writerow(csv_write_format)
+
 
     return

@@ -51,4 +51,4 @@ functions.write_to_csv(avg_bp, diagnosis, tags)
 # Save all averages calculated to a file
 
 # Push all updates to GitHub
-# functions.push_to_github()
+functions.push_to_github()
