@@ -46,6 +46,7 @@ functions.write_to_csv(avg_bp, diagnosis, tags)
 
 # Calculate average for last 90 days
 
+
 # Calculate average for all inputs
 
 # Save all averages calculated to a file
