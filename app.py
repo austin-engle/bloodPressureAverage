@@ -56,5 +56,4 @@ all_time_average = functions.all_time_average()
 functions.write_averages_to_file(seven_day_average, thirty_day_average, ninty_day_average, all_time_average)
 
 # Push all updates to GitHub
-
 functions.push_to_github()
