@@ -155,6 +155,8 @@ def diagnosis_output(avg_bp):
 
     elif sys_diagnosis < dia_diagnosis:
         diagnosis = dia[dia_diagnosis]
+    else:
+        diagnosis = "Unable to gather diagnosis"
 
     return diagnosis
 
@@ -188,11 +190,11 @@ def push_to_github():
 
     # Pushes the updates to github automatically as the end of the script
 
-    os.system("git add *")
+    os.system("git add * >/dev/null 2>&1")
     # sleep(1)
-    os.system(f"git commit -m 'commit after blood pressure reading: {date} {time_12hr}'")
+    os.system(f"git commit -m 'commit after blood pressure reading: {date} {time_12hr}' >/dev/null 2>&1")
     # sleep(1)
-    os.system(f"git push")
+    os.system(f"git push >/dev/null 2>&1")
 
 
 def write_to_csv(avg_bp, diagnosis, tags):
@@ -225,7 +227,7 @@ def write_to_csv(avg_bp, diagnosis, tags):
 
     import csv
     # fields=["9/20/19","6:36 PM","138","88","54","Prehypertension","Right arm | Seated"]
-    with open(r'bloodpressure1.csv', 'a') as f:
+    with open(r'bloodpressure.csv', 'a') as f:
         writer = csv.writer(f)
         writer.writerow(csv_write_format)
 
@@ -244,7 +246,7 @@ def average_over_time(t):
 
         adj_date = f"{month}/{day}/{year}"
 
-        with open('bloodpressure1.csv', newline='') as csvfile:
+        with open('bloodpressure.csv', newline='') as csvfile:
             csv_data = csv.DictReader(csvfile)
             for row in csv_data:
                 if row['DATE'] == adj_date:
@@ -269,7 +271,7 @@ def all_time_average():
     dia_data = []
     pul_data = []
 
-    with open('bloodpressure1.csv', newline='') as csvfile:
+    with open('bloodpressure.csv', newline='') as csvfile:
         csv_data = csv.DictReader(csvfile)
         for row in csv_data:
             # if row['DATE'] == adj_date:

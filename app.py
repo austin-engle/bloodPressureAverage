@@ -42,13 +42,13 @@ functions.write_to_csv(avg_bp, diagnosis, tags)
 
 # Calculate average for last 7 days
 seven_day_average = functions.average_over_time(7)
-print('1##################################')
+
 # Calculate average for last 30 days
 thirty_day_average = functions.average_over_time(30)
-print('2###################################')
+
 # Calculate average for last 90 days
 ninty_day_average = functions.average_over_time(90)
-print('3###################################')
+
 # Calculate average for all inputs
 all_time_average = functions.all_time_average()
 
@@ -56,4 +56,5 @@ all_time_average = functions.all_time_average()
 functions.write_averages_to_file(seven_day_average, thirty_day_average, ninty_day_average, all_time_average)
 
 # Push all updates to GitHub
+
 functions.push_to_github()
