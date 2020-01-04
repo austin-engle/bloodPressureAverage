@@ -1,4 +1,4 @@
 7 Day Average: 131/80 61
-30 Day Average: 131/80 59
-90 Day Average: 128/77 61
+30 Day Average: 132/81 60
+90 Day Average: 127/77 62
 All Time Average: 130/78 62
