@@ -238,7 +238,7 @@ def average_over_time(t):
     for i in range(t):
         n = str(now - datetime.timedelta(days=i)).replace('-', '/')
 
-        year = n[2:4]
+        year = n[0:4]
         month = n[5:7]
         day = n[8:10]
 
@@ -277,6 +277,7 @@ def all_time_average():
         for row in csv_data:
             # if row['DATE'] == adj_date:
             sys = int(row["SYS"])
+            print(sys)
             dia = int(row["DIA"])
             pul = int(row["PUL"])
             sys_data.append(sys)

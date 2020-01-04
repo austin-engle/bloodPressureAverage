@@ -25,7 +25,7 @@ functions.countdown()
 # Gathers second blood pressure reading
 bp2 = functions.reading('second')
 
-# Deplays 30 seconds
+# Delays 30 seconds
 functions.countdown()
 
 # Gathers third blood pressure reading
@@ -57,3 +57,4 @@ functions.write_averages_to_file(seven_day_average, thirty_day_average, ninty_da
 
 # Push all updates to GitHub
 functions.push_to_github()
+
