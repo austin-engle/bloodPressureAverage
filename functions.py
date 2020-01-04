@@ -277,7 +277,6 @@ def all_time_average():
         for row in csv_data:
             # if row['DATE'] == adj_date:
             sys = int(row["SYS"])
-            print(sys)
             dia = int(row["DIA"])
             pul = int(row["PUL"])
             sys_data.append(sys)
