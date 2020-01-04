@@ -199,10 +199,6 @@ def push_to_github():
     print('Pushed to git successfully, exiting script')
 
 
-if __name__ == "__main__":
-    push_to_github()
-
-
 def write_to_csv(avg_bp, diagnosis, tags):
 
     # rows to gather
