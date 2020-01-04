@@ -57,4 +57,3 @@ functions.write_averages_to_file(seven_day_average, thirty_day_average, ninty_da
 
 # Push all updates to GitHub
 functions.push_to_github()
-

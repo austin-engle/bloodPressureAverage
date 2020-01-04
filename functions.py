@@ -189,14 +189,18 @@ def tags():
 def push_to_github():
 
     # Pushes the updates to github automatically as the end of the script
-
+    sleep(5)
     os.system("git add * >/dev/null 2>&1")
-    sleep(1)
+    sleep(2)
     os.system(f"git commit -m 'commit after blood pressure reading: {date} {time_12hr}' >/dev/null 2>&1")
-    sleep(1)
+    sleep(2)
     os.system(f"git push >/dev/null 2>&1")
 
     print('Pushed to git successfully, exiting script')
+
+
+if __name__ == "__main__":
+    push_to_github()
 
 
 def write_to_csv(avg_bp, diagnosis, tags):
