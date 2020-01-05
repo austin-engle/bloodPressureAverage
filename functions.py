@@ -18,7 +18,7 @@ if len(str(now.day)) == 1:
 else:
     day = now.day()
 
-date = f"{month}/{day}/{now.year}"125
+date = f"{month}/{day}/{now.year}"
 
 time_24hr = f"{now.hour}:{now.minute}"
 d = datetime.datetime.strptime(time_24hr, "%H:%M")
@@ -196,7 +196,7 @@ def tags():
 def push_to_github():
 
     # Pushes the updates to github automatically as the end of the script
-    sleep(5)
+    sleep(3)
     os.system("git add * >/dev/null 2>&1")
     sleep(2)
     os.system(
@@ -250,7 +250,6 @@ def average_over_time(t):
     attempt = None
 
     try:
-        sleep(4)
         for i in range(t):
             n = str(now - datetime.timedelta(days=i)).replace("-", "/")
 
@@ -279,6 +278,7 @@ def average_over_time(t):
             "dia": round(mean(dia_data)),
             "pul": round(mean(pul_data)),
         }
+
     except:
         print("Unable to pull historical data trying again")
         attempt += 1
