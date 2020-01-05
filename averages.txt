@@ -1,4 +1,5 @@
-7 Day Average: 131/80 61
-30 Day Average: 132/81 60
+Latest Reading: {'avg_sys': 130, 'avg_dia': 77, 'avg_pul': 61}
+7 Day Average: 130/83 70
+30 Day Average: 132/80 60
 90 Day Average: 127/77 62
 All Time Average: 130/78 62
