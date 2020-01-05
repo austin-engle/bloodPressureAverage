@@ -5,7 +5,20 @@ import csv
 from statistics import mean
 
 now = datetime.datetime.now()
-date = f"{now.month}/{now.day}/{now.year}"
+
+if len(str(now.month)) == 1:
+    month = f"0{now.month}"
+    print(month)
+else:
+    month = now.month()
+
+if len(str(now.day)) == 1:
+    day = f"0{now.day}"
+    print(day)
+else:
+    day = now.day()
+
+date = f"{month}/{day}/{now.year}"125
 
 time_24hr = f"{now.hour}:{now.minute}"
 d = datetime.datetime.strptime(time_24hr, "%H:%M")
