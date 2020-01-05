@@ -24,7 +24,7 @@ def reading(num):
     # Gathers the blood pressure readings.
 
     print(f"Please take the {num} reading now.\n")
-    # sleep(30)
+    sleep(30)
 
     correct = None
     sys = None
@@ -60,7 +60,7 @@ def countdown():
 
     while countdown != 0:
         countdown = countdown - 1
-        # sleep(1)
+        sleep(1)
         if countdown == 20 or countdown == 10:
             print(f"{countdown} seconds remaining.")
 
@@ -219,7 +219,10 @@ def write_to_csv(avg_bp, diagnosis, tags):
 
     import csv
 
-    with open(r"bloodpressure.csv", "a") as f:
+    with open(
+        r"/Users/austin.engle/Sources/personal/bloodPressureAverage/bloodpressure.csv",
+        "a",
+    ) as f:
         writer = csv.writer(f)
         writer.writerow(csv_write_format)
 
@@ -244,7 +247,10 @@ def average_over_time(t):
 
             adj_date = f"{month}/{day}/{year}"
 
-            with open("bloodpressure.csv", newline="") as csvfile:
+            with open(
+                "/Users/austin.engle/Sources/personal/bloodPressureAverage/bloodpressure.csv",
+                newline="",
+            ) as csvfile:
                 csv_data = csv.DictReader(csvfile)
                 for row in csv_data:
                     if row["DATE"] == adj_date:
@@ -279,7 +285,10 @@ def all_time_average():
     dia_data = []
     pul_data = []
 
-    with open("bloodpressure.csv", newline="") as csvfile:
+    with open(
+        "/Users/austin.engle/Sources/personal/bloodPressureAverage/bloodpressure.csv",
+        newline="",
+    ) as csvfile:
         csv_data = csv.DictReader(csvfile)
         for row in csv_data:
             # if row['DATE'] == adj_date:
@@ -305,7 +314,7 @@ def write_averages_to_file(
 
     # Writes the averages to a file for easy tracking
 
-    latest_reading_message = f"Latest Reading: {avg_bp}"
+    latest_reading_message = f'{date}\nLatest Reading: {avg_bp["avg_sys"]}/{avg_bp["avg_dia"]} {avg_bp["avg_pul"]}'
     seven_day_average_message = f'7 Day Average: {seven_day_average["sys"]}/{seven_day_average["dia"]} {seven_day_average["pul"]}'
     thirty_day_average_message = f'30 Day Average: {thirty_day_average["sys"]}/{thirty_day_average["dia"]} {thirty_day_average["pul"]}'
     ninty_day_average_message = f'90 Day Average: {ninty_day_average["sys"]}/{ninty_day_average["dia"]} {ninty_day_average["pul"]}'
@@ -315,4 +324,3 @@ def write_averages_to_file(
         f"{latest_reading_message}\n{seven_day_average_message}\n{thirty_day_average_message}\n{ninty_day_average_message}\n{all_time_average_message}",
         file=open("averages.txt", "w"),
     )
-
