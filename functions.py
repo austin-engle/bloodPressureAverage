@@ -227,37 +227,46 @@ def write_to_csv(avg_bp, diagnosis, tags):
 def average_over_time(t):
 
     # Calculate the average blood pressure over time from the csv file
-    sleep(4)
 
     sys_data = []
     dia_data = []
     pul_data = []
+    attempt = None
 
-    for i in range(t):
-        n = str(now - datetime.timedelta(days=i)).replace("-", "/")
+    try:
+        sleep(4)
+        for i in range(t):
+            n = str(now - datetime.timedelta(days=i)).replace("-", "/")
 
-        year = n[0:4]
-        month = n[5:7]
-        day = n[8:10]
+            year = n[0:4]
+            month = n[5:7]
+            day = n[8:10]
 
-        adj_date = f"{month}/{day}/{year}"
+            adj_date = f"{month}/{day}/{year}"
 
-        with open("bloodpressure.csv", newline="") as csvfile:
-            csv_data = csv.DictReader(csvfile)
-            for row in csv_data:
-                if row["DATE"] == adj_date:
-                    sys = int(row["SYS"])
-                    dia = int(row["DIA"])
-                    pul = int(row["PUL"])
-                    sys_data.append(sys)
-                    dia_data.append(dia)
-                    pul_data.append(pul)
+            with open("bloodpressure.csv", newline="") as csvfile:
+                csv_data = csv.DictReader(csvfile)
+                for row in csv_data:
+                    if row["DATE"] == adj_date:
+                        sys = int(row["SYS"])
+                        dia = int(row["DIA"])
+                        pul = int(row["PUL"])
+                        sys_data.append(sys)
+                        dia_data.append(dia)
+                        pul_data.append(pul)
 
-    avg_data = {
-        "sys": round(mean(sys_data)),
-        "dia": round(mean(dia_data)),
-        "pul": round(mean(pul_data)),
-    }
+        avg_data = {
+            "sys": round(mean(sys_data)),
+            "dia": round(mean(dia_data)),
+            "pul": round(mean(pul_data)),
+        }
+    except:
+        print("Unable to pull historical data trying again")
+        attempt += 1
+        if attempt == 2:
+            raise ValueError("Unable to gather historical data")
+        else:
+            pass
 
     return avg_data
 
