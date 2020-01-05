@@ -17,19 +17,19 @@ functions.clear()
 tags = functions.tags()
 
 # Gathers first blood pressure reading
-bp1 = functions.reading('first')
+bp1 = functions.reading("first")
 
 # Delays 30 seconds
 functions.countdown()
 
 # Gathers second blood pressure reading
-bp2 = functions.reading('second')
+bp2 = functions.reading("second")
 
 # Delays 30 seconds
 functions.countdown()
 
 # Gathers third blood pressure reading
-bp3 = functions.reading('third')
+bp3 = functions.reading("third")
 
 # Averages the 3 blood pressure reading
 avg_bp = functions.avgbp(bp1, bp2, bp3)
@@ -53,7 +53,9 @@ ninty_day_average = functions.average_over_time(90)
 all_time_average = functions.all_time_average()
 
 # Save all averages calculated to a file
-functions.write_averages_to_file(avg_bp, seven_day_average, thirty_day_average, ninty_day_average, all_time_average)
+functions.write_averages_to_file(
+    avg_bp, seven_day_average, thirty_day_average, ninty_day_average, all_time_average
+)
 
-# # Push all updates to GitHub
-# functions.push_to_github()
+# Push all updates to GitHub
+functions.push_to_github()
