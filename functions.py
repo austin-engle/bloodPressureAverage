@@ -335,5 +335,8 @@ def write_averages_to_file(
 
     print(
         f"{latest_reading_message}\n{seven_day_average_message}\n{thirty_day_average_message}\n{ninty_day_average_message}\n{all_time_average_message}",
-        file=open("averages.txt", "w"),
+        file=open(
+            "/Users/austin.engle/Sources/personal/bloodPressureAverage/averages.txt",
+            "w",
+        ),
     )
