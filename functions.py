@@ -25,6 +25,13 @@ d = datetime.datetime.strptime(time_24hr, "%H:%M")
 time_12hr = d.strftime("%I:%M %p")
 
 
+def set_location():
+
+    # Set location of code execution
+
+    os.system("cd ~/Sources/personal/bloodPressureAverage")
+
+
 def clear():
 
     # Clears the console
