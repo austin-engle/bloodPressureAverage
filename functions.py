@@ -25,13 +25,6 @@ d = datetime.datetime.strptime(time_24hr, "%H:%M")
 time_12hr = d.strftime("%I:%M %p")
 
 
-def set_location():
-
-    # Set location of code execution
-
-    os.system("cd ~/Sources/personal/bloodPressureAverage")
-
-
 def clear():
 
     # Clears the console
@@ -239,10 +232,7 @@ def write_to_csv(avg_bp, diagnosis, tags):
 
     import csv
 
-    with open(
-        r"/Users/austin.engle/Sources/personal/bloodPressureAverage/bloodpressure.csv",
-        "a",
-    ) as f:
+    with open(r"bloodpressure.csv", "a",) as f:
         writer = csv.writer(f)
         writer.writerow(csv_write_format)
 
@@ -266,10 +256,7 @@ def average_over_time(t):
 
             adj_date = f"{month}/{day}/{year}"
 
-            with open(
-                "/Users/austin.engle/Sources/personal/bloodPressureAverage/bloodpressure.csv",
-                newline="",
-            ) as csvfile:
+            with open("bloodpressure.csv", newline="",) as csvfile:
                 csv_data = csv.DictReader(csvfile)
                 for row in csv_data:
                     if row["DATE"] == adj_date:
@@ -305,10 +292,7 @@ def all_time_average():
     dia_data = []
     pul_data = []
 
-    with open(
-        "/Users/austin.engle/Sources/personal/bloodPressureAverage/bloodpressure.csv",
-        newline="",
-    ) as csvfile:
+    with open("bloodpressure.csv", newline="",) as csvfile:
         csv_data = csv.DictReader(csvfile)
         for row in csv_data:
             # if row['DATE'] == adj_date:
@@ -342,8 +326,5 @@ def write_averages_to_file(
 
     print(
         f"{latest_reading_message}\n{seven_day_average_message}\n{thirty_day_average_message}\n{ninty_day_average_message}\n{all_time_average_message}",
-        file=open(
-            "/Users/austin.engle/Sources/personal/bloodPressureAverage/averages.txt",
-            "w",
-        ),
+        file=open("averages.txt", "w",),
     )

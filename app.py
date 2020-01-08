@@ -13,9 +13,6 @@ import functions
 # Clears the console
 functions.clear()
 
-# Set the Directory
-functions.set_location()
-
 # Gets tags for reading
 tags = functions.tags()
 
