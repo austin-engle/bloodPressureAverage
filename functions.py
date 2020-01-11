@@ -10,13 +10,13 @@ if len(str(now.month)) == 1:
     month = f"0{now.month}"
     print(month)
 else:
-    month = now.month()
+    month = now.month
 
 if len(str(now.day)) == 1:
     day = f"0{now.day}"
     print(day)
 else:
-    day = now.day()
+    day = now.day
 
 date = f"{month}/{day}/{now.year}"
 
