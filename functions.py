@@ -84,7 +84,7 @@ def avgbp(bp1, bp2, bp3):
 
     # Averages the Blood Pressures that were previously collected.
 
-    print(f"Calcuating average blood pressure")
+    print(f"Calculating average blood pressure")
     sleep(2)
 
     avg_sys = int(((bp1["sys"] + bp2["sys"] + bp3["sys"]) / 3))
