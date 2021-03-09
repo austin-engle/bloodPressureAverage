@@ -57,5 +57,8 @@ functions.write_averages_to_file(
     avg_bp, seven_day_average, thirty_day_average, ninty_day_average, all_time_average
 )
 
+# Print out averages to the console
+functions.print_averages()
+
 # Push all updates to GitHub
 functions.push_to_github()

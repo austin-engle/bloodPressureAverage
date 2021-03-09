@@ -311,6 +311,10 @@ def all_time_average():
 
     return avg_data
 
+def print_averages():
+    with open('averages.txt', 'r') as file:
+        print(file.read())
+
 
 def write_averages_to_file(
     avg_bp, seven_day_average, thirty_day_average, ninty_day_average, all_time_average
