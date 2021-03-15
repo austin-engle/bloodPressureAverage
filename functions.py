@@ -28,7 +28,6 @@ time_12hr = d.strftime("%I:%M %p")
 def clear():
 
     # Clears the console
-
     os.system("clear")
 
 
@@ -46,8 +45,7 @@ def reading(num):
 
     while correct != "yes" and correct != "y" and correct != "1":
 
-        # add error handling for value errors (right now a '' will break the script, Likely need to remove the int and make it an int later in the script)
-        # while type(sys) != int:
+        # TODO add error handling for value errors (right now a '' will break the script, Likely need to remove the int and make it an int later in the script)
         sys = int(input(f"What is the SYS of the {num} reading? "))
         dia = int(input(f"What is the DIA of the {num} reading? "))
         pul = int(input(f"What is the PUL of the {num} reading? "))
