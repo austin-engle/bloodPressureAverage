@@ -44,7 +44,7 @@ def reading(num):
     dia = None
     pul = None
 
-    while correct != "yes" and correct != "y":
+    while correct != "yes" and correct != "y" and correct != "1":
 
         # add error handling for value errors (right now a '' will break the script, Likely need to remove the int and make it an int later in the script)
         # while type(sys) != int:
