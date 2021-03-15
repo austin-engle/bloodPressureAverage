@@ -274,12 +274,15 @@ def average_over_time(t):
                         sys_data.append(sys)
                         dia_data.append(dia)
                         pul_data.append(pul)
-
+        print(sys_data)
+        print(dia_data)
+        print(pul_data)
         avg_data = {
             "sys": round(mean(sys_data)),
             "dia": round(mean(dia_data)),
             "pul": round(mean(pul_data)),
         }
+        print(avg_data)
 
     except:
         print("Unable to pull historical data trying again")
@@ -303,7 +306,6 @@ def all_time_average():
     with open("bloodpressure.csv", newline="") as csvfile:
         csv_data = csv.DictReader(csvfile)
         for row in csv_data:
-            # if row['DATE'] == adj_date:
             sys = int(row["SYS"])
             dia = int(row["DIA"])
             pul = int(row["PUL"])
