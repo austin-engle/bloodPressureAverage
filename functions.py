@@ -258,16 +258,16 @@ def average_over_time(t):
             day = n[8:10]
 
             adj_date = f"{month}/{day}/{year}"
-            print(adj_date)
+            # print(adj_date)
             with open(
                 "bloodpressure.csv",
                 newline="",
             ) as csvfile:
                 csv_data = csv.DictReader(csvfile)
                 for row in csv_data:
-                    print(row)
+                    # print(row)
                     if row["DATE"] == adj_date:
-                        print("match")
+                        # print("match")
                         sys = int(row["SYS"])
                         dia = int(row["DIA"])
                         pul = int(row["PUL"])
