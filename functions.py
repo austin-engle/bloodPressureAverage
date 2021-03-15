@@ -37,7 +37,7 @@ def reading(num):
     # Gathers the blood pressure readings.
 
     print(f"Please take the {num} reading now.\n")
-    sleep(30)
+    # sleep(30)
 
     correct = None
     sys = None
@@ -53,7 +53,7 @@ def reading(num):
         pul = int(input(f"What is the PUL of the {num} reading? "))
 
         print(f"\n{num.capitalize()} Blood Pressure reading:\n {sys}/{dia} {pul}\n")
-        sleep(1)
+        # sleep(1)
 
         correct = input("Is this the correct blood pressure reading? (Yes/No) ").lower()
 
@@ -73,7 +73,7 @@ def countdown():
 
     while countdown != 0:
         countdown = countdown - 1
-        sleep(1)
+        # sleep(1)
         if countdown == 20 or countdown == 10:
             print(f"{countdown} seconds remaining.")
 
@@ -85,7 +85,7 @@ def avgbp(bp1, bp2, bp3):
     # Averages the Blood Pressures that were previously collected.
 
     print(f"Calculating average blood pressure")
-    sleep(2)
+    # sleep(2)
 
     avg_sys = int(((bp1["sys"] + bp2["sys"] + bp3["sys"]) / 3))
     avg_dia = int(((bp1["dia"] + bp2["dia"] + bp3["dia"]) / 3))
@@ -196,13 +196,13 @@ def tags():
 def push_to_github():
 
     # Pushes the updates to github automatically as the end of the script
-    sleep(3)
+    # sleep(3)
     os.system("git add * >/dev/null 2>&1")
-    sleep(2)
+    # sleep(2)
     os.system(
         f"git commit -m 'commit after blood pressure reading: {date} {time_12hr}' >/dev/null 2>&1"
     )
-    sleep(2)
+    # sleep(2)
     os.system(f"git push >/dev/null 2>&1")
 
     print("Pushed to git successfully, exiting script")
@@ -232,7 +232,10 @@ def write_to_csv(avg_bp, diagnosis, tags):
 
     import csv
 
-    with open(r"bloodpressure.csv", "a",) as f:
+    with open(
+        r"bloodpressure.csv",
+        "a",
+    ) as f:
         writer = csv.writer(f)
         writer.writerow(csv_write_format)
 
@@ -256,7 +259,10 @@ def average_over_time(t):
 
             adj_date = f"{month}/{day}/{year}"
 
-            with open("bloodpressure.csv", newline="",) as csvfile:
+            with open(
+                "bloodpressure.csv",
+                newline="",
+            ) as csvfile:
                 csv_data = csv.DictReader(csvfile)
                 for row in csv_data:
                     if row["DATE"] == adj_date:
@@ -292,7 +298,7 @@ def all_time_average():
     dia_data = []
     pul_data = []
 
-    with open("bloodpressure.csv", newline="",) as csvfile:
+    with open("bloodpressure.csv", newline="") as csvfile:
         csv_data = csv.DictReader(csvfile)
         for row in csv_data:
             # if row['DATE'] == adj_date:
@@ -311,8 +317,9 @@ def all_time_average():
 
     return avg_data
 
+
 def print_averages():
-    with open('averages.txt', 'r') as file:
+    with open("averages.txt", "r") as file:
         print(file.read())
 
 
@@ -330,5 +337,8 @@ def write_averages_to_file(
 
     print(
         f"{latest_reading_message}\n{seven_day_average_message}\n{thirty_day_average_message}\n{ninty_day_average_message}\n{all_time_average_message}",
-        file=open("averages.txt", "w",),
+        file=open(
+            "averages.txt",
+            "w",
+        ),
     )
