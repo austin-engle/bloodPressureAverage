@@ -81,7 +81,7 @@ def avgbp(bp1, bp2, bp3):
     # Averages the Blood Pressures that were previously collected.
 
     print(f"Calculating average blood pressure")
-    sleep(2)
+    sleep(1.5)
 
     avg_sys = int(((bp1["sys"] + bp2["sys"] + bp3["sys"]) / 3))
     avg_dia = int(((bp1["dia"] + bp2["dia"] + bp3["dia"]) / 3))
@@ -192,13 +192,13 @@ def tags():
 def push_to_github():
 
     # Pushes the updates to github automatically as the end of the script
-    sleep(3)
-    os.system("git add * >/dev/null 2>&1")
-    sleep(2)
+    sleep(1)
+    os.system("git add BloodPressure.csv averages.txt >/dev/null 2>&1")
+    sleep(1)
     os.system(
         f"git commit -m 'commit after blood pressure reading: {date} {time_12hr}' >/dev/null 2>&1"
     )
-    sleep(2)
+    sleep(1)
     os.system(f"git push >/dev/null 2>&1")
 
     print("Pushed to git successfully, exiting script")
@@ -267,15 +267,12 @@ def average_over_time(t):
                         sys_data.append(sys)
                         dia_data.append(dia)
                         pul_data.append(pul)
-        print(sys_data)
-        print(dia_data)
-        print(pul_data)
+
         avg_data = {
             "sys": round(mean(sys_data)),
             "dia": round(mean(dia_data)),
             "pul": round(mean(pul_data)),
         }
-        print(avg_data)
 
     except:
         print("Unable to pull historical data trying again")
