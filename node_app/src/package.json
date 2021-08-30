@@ -1,0 +1,14 @@
+{
+  "name": "blood_pressure_monitor",
+  "version": "0.0.1",
+  "description": "App to monitor and keep track of average blood pressures taken",
+  "author": "Austin Engle",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node index.js"
+  },
+  "dependencies": {
+    "express": "^4.17.1"
+  }
+}
