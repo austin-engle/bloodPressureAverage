@@ -14,5 +14,5 @@ EXPOSE 8080
 ENTRYPOINT ["yarn", "start"]
 
 
-# docker build -t node-test .
-# docker run -p 8080:8080 node-test
+# docker build -t bpa .
+# docker run -d -p 8100:8080 --name bpa bpa
