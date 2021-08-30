@@ -4,14 +4,14 @@ WORKDIR /app
 
 COPY /src .
 
-RUN npm install
+RUN yarn install
 
 # RUN npm test
 
 EXPOSE 8080
 
 # TODO: non-root user
-ENTRYPOINT ["npm", "start"]
+ENTRYPOINT ["yarn", "start"]
 
 
 # docker build -t node-test .
