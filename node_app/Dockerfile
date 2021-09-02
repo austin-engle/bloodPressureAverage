@@ -1,5 +1,6 @@
 FROM node:lts-alpine3.14
 
+LABEL com.centurylinklabs.watchtower.enable="false"
 WORKDIR /app
 
 COPY /src .

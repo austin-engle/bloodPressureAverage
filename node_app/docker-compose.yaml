@@ -1,0 +1,9 @@
+version: '3'
+
+services:
+  bpa:
+    container_name: bpa
+    build: .
+    ports:
+      - "8100:8080"
+    restart: always
