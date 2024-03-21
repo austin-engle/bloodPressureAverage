@@ -207,20 +207,10 @@ def push_to_github():
 def write_to_csv(avg_bp, diagnosis, tags):
 
     # rows to gather
-
-    # SYS
     sys = avg_bp["avg_sys"]
-
-    # DIA
     dia = avg_bp["avg_dia"]
-
-    # PUL
     pul = avg_bp["avg_pul"]
-
-    # BPZ
     bpz = diagnosis
-
-    # TAGS
     tags = tags
 
     # DATE,TIME,SYS,DIA,PUL,BPZ,TAGS
