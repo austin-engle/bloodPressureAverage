@@ -212,9 +212,10 @@ def write_to_csv(avg_bp, diagnosis, tags):
     pul = avg_bp["avg_pul"]
     bpz = diagnosis
     tags = tags
+    notes = "Fill me out" # TODO add a section to accept some notes. We need to pass in these from somewhere else.
 
-    # DATE,TIME,SYS,DIA,PUL,BPZ,TAGS
-    csv_write_format = date, time_12hr, sys, dia, pul, bpz, tags
+    # DATE,TIME,SYS,DIA,PUL,BPZ,TAGS,NOTES
+    csv_write_format = date, time_12hr, sys, dia, pul, bpz, tags, notes
 
     import csv
 
