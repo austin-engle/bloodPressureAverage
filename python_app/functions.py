@@ -34,7 +34,7 @@ def reading(num):
     # Gathers the blood pressure readings.
 
     print(f"Please take the {num} reading now.\n")
-    sleep(30)
+    # sleep(30)
 
     correct = None
     sys = None
@@ -49,7 +49,7 @@ def reading(num):
         pul = int(input(f"What is the PUL of the {num} reading? "))
 
         print(f"\n{num.capitalize()} Blood Pressure reading:\n {sys}/{dia} {pul}\n")
-        sleep(1)
+        # sleep(1)
 
         correct = input("Is this the correct blood pressure reading? (Yes/No) ").lower()
 
@@ -69,7 +69,7 @@ def countdown():
 
     while countdown != 0:
         countdown = countdown - 1
-        sleep(1)
+        # sleep(1)
         if countdown == 20 or countdown == 10:
             print(f"{countdown} seconds remaining.")
 
@@ -81,7 +81,7 @@ def avgbp(bp1, bp2, bp3):
     # Averages the Blood Pressures that were previously collected.
 
     print(f"Calculating average blood pressure")
-    sleep(1.5)
+    # sleep(1.5)
 
     avg_sys = int(((bp1["sys"] + bp2["sys"] + bp3["sys"]) / 3))
     avg_dia = int(((bp1["dia"] + bp2["dia"] + bp3["dia"]) / 3))
@@ -192,19 +192,19 @@ def tags():
 def push_to_github():
 
     # Pushes the updates to github automatically as the end of the script
-    sleep(1)
+    # sleep(1)
     os.system("git add BloodPressure.csv averages.txt >/dev/null 2>&1")
-    sleep(1)
+    # sleep(1)
     os.system(
         f"git commit -m 'commit after blood pressure reading: {date} {time_12hr}' >/dev/null 2>&1"
     )
-    sleep(1)
+    # sleep(1)
     os.system(f"git push >/dev/null 2>&1")
 
     print("Pushed to git successfully, exiting script")
 
 
-def write_to_csv(avg_bp, diagnosis, tags):
+def write_to_csv(avg_bp, diagnosis, tags, notes):
 
     # rows to gather
     sys = avg_bp["avg_sys"]
@@ -212,7 +212,7 @@ def write_to_csv(avg_bp, diagnosis, tags):
     pul = avg_bp["avg_pul"]
     bpz = diagnosis
     tags = tags
-    notes = "Fill me out" # TODO add a section to accept some notes. We need to pass in these from somewhere else.
+    notes = notes
 
     # DATE,TIME,SYS,DIA,PUL,BPZ,TAGS,NOTES
     csv_write_format = date, time_12hr, sys, dia, pul, bpz, tags, notes

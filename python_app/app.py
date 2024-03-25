@@ -37,8 +37,10 @@ avg_bp = functions.avgbp(bp1, bp2, bp3)
 # returns diagnoses from the calculated average blood pressure
 diagnosis = functions.diagnosis_output(avg_bp)
 
+notes = input("Enter any notes you would like to add: ")
+
 # Write data to csv for keeping
-functions.write_to_csv(avg_bp, diagnosis, tags)
+functions.write_to_csv(avg_bp, diagnosis, tags, notes)
 
 # Calculate average for last 7 days
 seven_day_average = functions.average_over_time(7)
