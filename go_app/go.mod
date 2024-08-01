@@ -1,3 +1,3 @@
-module app.go
+module go_app
 
-go 1.20
+go 1.22.5

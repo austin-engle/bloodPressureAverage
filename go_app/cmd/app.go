@@ -2,14 +2,8 @@ package main
 
 import (
 	"fmt"
-	// "utils"
-
-	"github.com/austin_engle/bloodpressureaverage/internal/utils"
-	// "os"
-	// "strconv"
+	"go_app/internal/utils"
 )
-
-
 
 func main() {
 
@@ -19,14 +13,14 @@ func main() {
 	// write a welcome message
 	fmt.Println("Welcome to the Blood Pressure Averager")
 
-	reading1 := utils.reading(1)
+	reading1 := utils.Reading(1)
 
-	reading2 := utils.reading(2)
+	reading2 := utils.Reading(2)
 
-	reading3 := utils.reading(3)
+	reading3 := utils.Reading(3)
 
-	avgbp := utils.avgbp(reading1, reading2, reading3)
+	avgbp := utils.Avgbp(reading1, reading2, reading3)
 
-	utils.diagnose(avgbp)
+	utils.Diagnose(avgbp)
 
 }
