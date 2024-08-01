@@ -1,10 +1,6 @@
-package main
+package utils
 
-import (
-	"fmt"
-	// "os"
-	// "strconv"
-)
+import "fmt"
 
 func reading(readingNumber int) map[string]int {
 	var ReadingSYS int
@@ -81,43 +77,29 @@ func diagnose(reading map[string]int) {
 		sys_diagnosis = "5"
 	}
 
+	// Check the DIA reading
 	if num := reading["DIA"]; num < 60 {
-		fmt.Printf("Your average DIA is showing signs of hypotension\n\n")
+		// If the DIA is less than 60, it is considered to be in hypotension
+		fmt.Println("Your average DIA is showing signs of hypotension")
 		dia_diagnosis = "1"
 	} else if num >= 61 && reading["DIA"] <= 80 {
-		fmt.Printf("Your average DIA is showing signs of normal blood pressure\n\n")
+		// If the DIA is between 61 and 80, it is considered to be in normal blood pressure
+		fmt.Println("Your average DIA is showing signs of normal blood pressure")
 		dia_diagnosis = "2"
 	} else if num >= 81 && reading["DIA"] <= 90 {
-		fmt.Printf("Your average DIA is showing signs of prehypertension\n\n")
+		// If the DIA is between 81 and 90, it is considered to be in prehypertension
+		fmt.Println("Your average DIA is showing signs of prehypertension")
 		dia_diagnosis = "3"
 	} else if num >= 91 && reading["DIA"] <= 100 {
-		fmt.Printf("Your average DIA is showing signs of stage 1 hypertension\n\n")
+		// If the DIA is between 91 and 100, it is considered to be in stage 1 hypertension
+		fmt.Println("Your average DIA is showing signs of stage 1 hypertension")
 		dia_diagnosis = "4"
 	} else if num >= 101 {
-		fmt.Printf("Your average DIA is showing signs of stage 2 hypertension\n\n")
+		// If the DIA is 101 or greater, it is considered to be in stage 2 hypertension
+		fmt.Println("Your average DIA is showing signs of stage 2 hypertension")
 		dia_diagnosis = "5"
 	}
 
 
 	fmt.Printf("Your diagnosis is: %s/%s\n\n", diagnosis_map[sys_diagnosis], diagnosis_map[dia_diagnosis])
-}
-
-func main() {
-
-	// clear the console
-	fmt.Print("\033[H\033[2J")
-
-	// write a welcome message
-	fmt.Println("Welcome to the Blood Pressure Averager")
-
-	reading1 := reading(1)
-
-	reading2 := reading(2)
-
-	reading3 := reading(3)
-
-	avgbp := avgbp(reading1, reading2, reading3)
-
-	diagnose(avgbp)
-
 }
